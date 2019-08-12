@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#14213d">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IP "
+                android:textColor="#e5e5e5" />
+
+            <EditText
+                android:id="@+id/setIp"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="#e5e5e5"
+                android:hint="IP  "
+                android:maxHeight="25dp"
+                android:maxWidth="140dp"
+                android:text="192.168.0.6"
+                android:textColor="#14213d" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="PORT "
+                android:textColor="#e5e5e5" />
+
+            <EditText
+                android:id="@+id/setPort"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="#e5e5e5"
+                android:hint="PORT"
+                android:maxHeight="25dp"
+                android:maxWidth="70dp"
+                android:paddingLeft="5dp"
+                android:text="8883"
+                android:textColor="#14213d" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="StartMqttConnect"
+                android:text="connect" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:onClick="select_topic_setting"
+                android:text="clear" />
+
+            <Button
+                android:id="@+id/btn_remove"
+                android:onClick="select_topic_setting"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="remove" />
+
+            <Button
+                android:id="@+id/btn_publicsh"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:onClick="select_topic_setting"
+                android:text="send msg" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/LongCLick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:text="고정 그래프 : OFF"
+                android:textColor="#e5e5e5"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/DoubleCLick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:text="터치로 로그보기 : OFF"
+                android:textColor="#e5e5e5"
+                android:textSize="12dp" />
+        </LinearLayout>
+        <Button
+            android:enabled="false"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/remote"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="REMOTE ON"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e5e5e5"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/layout_topic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="TOPIC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#e5e5e5"
+                        android:textSize="25dp"/>
+
+                </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#e5e5e5" />
+
+        <ListView
+            android:listSelector="#74819d"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:id="@+id/topiclistview"
+            android:layout_width="350dp"
+            android:divider="#00000000"
+            android:dividerHeight="8dp"
+            android:transcriptMode="alwaysScroll"
+            android:layout_height="match_parent" />
+        <TableLayout
+            android:background="#e5e5e5"
+            android:visibility="gone"
+            android:id="@+id/lay_remote"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableLayout
+                android:background="#14213d"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp">
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:text="REMOTE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#e5e5e5"
+                    android:textSize="25dp"/>
+                <EditText
+                    android:paddingLeft="5dp"
+                    android:layout_margin="10dp"
+                    android:background="#e5e5e5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RADON/CONTROL/LED"
+                    android:enabled="false"/>
+            <TableRow>
+                <Button
+                    android:id="@+id/Aon"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="ALL ON"/>
+                <Button
+                    android:id="@+id/Aoff"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="ALL OFF"/>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="RED ON"
+                    android:id="@+id/Roff"
+                    android:onClick="remotecontroll"/>
+                <Button
+                    android:id="@+id/Ron"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="RED OFF"/>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/Gon"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="GREEN ON"/>
+                <Button
+                    android:id="@+id/Goff"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="GREEN OFF"/>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/G2on"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="GREEN2 ON"/>
+                <Button
+                    android:id="@+id/G2off"
+                    android:onClick="remotecontroll"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="GREEN2 OFF"/>
+            </TableRow>
+
+            </TableLayout>
+        </TableLayout>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            <LinearLayout
+                android:id="@+id/layout_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:visibility="gone"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="TIME"
+                    android:textColor="#e5e5e5"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="5"
+                    android:text="LOG"
+                    android:textColor="#e5e5e5"
+                    android:textSize="25dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:gravity="right"
+                    android:text="ID"
+                    android:textColor="#e5e5e5"
+                    android:textSize="25dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="TIME"
+                        android:textColor="#e5e5e5"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="5"
+                        android:text="ID"
+                        android:textColor="#e5e5e5"
+                        android:textSize="25dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:gravity="right"
+                        android:text="DATA"
+                        android:textColor="#e5e5e5"
+                        android:textSize="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#e5e5e5"></LinearLayout>
+
+            <ListView
+                android:id="@+id/loglistview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:divider="#00000000"
+                android:dividerHeight="8dp"
+                android:listSelector="#74819d"
+                android:transcriptMode="alwaysScroll"></ListView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

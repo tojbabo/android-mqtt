@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#14213d">
+
+    <TextView
+        android:textColor="#e5e5e5"
+        android:textSize="40dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MQTT MONITOR"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:textColor="#e5e5e5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한성시스코"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:textColor="#e5e5e5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아두이노 : 금기륜"/>
+    <TextView
+        android:textColor="#e5e5e5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MQTT 서버 : 탁원준"/>
+    <TextView
+        android:textColor="#e5e5e5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안드로이드 : 최수인"/>
+
+
+</LinearLayout>
